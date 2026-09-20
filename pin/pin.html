@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="../assets/css/pin.css">
+</head>
+<body>
+    <h1>Teka-Teki tersulit sepanjang masa</h1>
+    <div class="verificationCard">
+        <h2>Prove you are really Tasya</h2>
+        <label for="songInput">What is the name of the song that i used to sang for you?</label><br><br>
+        <input type="text" id="songInput" name="songInput" placeholder="Pernah masuk pintu rahasia?">
+        <div id="verificationResult">
+
+        </div>
+        <br><br>
+        <button onclick="checkAnswer()">Bener ga?</button>
+        <p>Udah dapet pin? <a href="../login/login.html">coba isi pin lagi</a></p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const answer = document.getElementById('songInput').value.trim().toLowerCase();
+            const resultMsg = document.getElementById('verificationResult');
+            if (answer === 'secret doors' || answer === 'Secret Doors' || answer === 'secret door' || answer === 'Secret Door' || answer === 'secret Door' || answer === 'Secret doors' || answer === 'secret Doors') {
+                verificationResult.innerHTML = '<p>PIN: 0824</p>';
+            } else {
+                resultMsg.innerHTML = '<p>Jawaban salah! Coba lagi.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

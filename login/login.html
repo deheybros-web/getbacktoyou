@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIN</title>
+    <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+<body>
+    <div class="pinCard">
+        <input type="password" id="pinInput" maxlength="4" placeholder="PIN 4 digits">
+        <div class="keys">
+            <button onclick="appendDigit('1')">1</button>
+            <button onclick="appendDigit('2')">2</button>
+            <button onclick="appendDigit('3')">3</button>
+            <button onclick="appendDigit('4')">4</button>
+            <button onclick="appendDigit('5')">5</button>
+            <button onclick="appendDigit('6')">6</button>
+            <button onclick="appendDigit('7')">7</button>
+            <button onclick="appendDigit('8')">8</button>
+            <button onclick="appendDigit('9')">9</button>
+            <button onclick="clearInput()">C</button>
+            <button onclick="appendDigit('0')">0</button>
+            <button onclick="submitPin()">OK</button>
+        </div>
+        <div id="pinResult">
+
+        </div>
+        <p>Clue: <a href="../pin/pin.html">PencetAku</a></p>
+
+    </div>
+        <script>
+            function appendDigit(digit) {
+                const pinInput = document.getElementById('pinInput');
+                if (pinInput.value.length < 4) {
+                    pinInput.value += digit;
+                }
+            }
+
+            function clearInput() {
+                document.getElementById('pinInput').value = '';
+            }
+
+            function submitPin() {
+                const resultMsg = document.getElementById('pinResult');
+                const pin = document.getElementById('pinInput').value;
+                if (pin === '0824') {
+                    localStorage.setItem('isLoggedIn', 'true');
+                    window.location.href = '../index.html';
+                } else {
+                    resultMsg.innerHTML = '<p>PIN salah! Coba lagi.</p>';
+                    clearInput();
+                }
+            }
+        </script>
+</body>
+</html>
